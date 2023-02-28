@@ -67,3 +67,9 @@ class Solution
         return sum;
     } 
 }
+
+
+                if(root == null) return 0;
+		if(root.data < l) return rangeSum(root.right,l,r);
+		else if(root.data > r) return rangeSum(root.left,l,r);
+		return rangeSum(root.left,l,r)+root.data+rangeSum(root.right,l,r);
