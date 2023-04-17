@@ -1,0 +1,24 @@
+class Solution {
+	public static boolean isSymmetricTree(Node root1, Node root2){
+		if(root1 == null && root2 == null){
+			return true;
+		}
+		if((root1==null && root2!=null)||(root1!=null && root2==null)){
+			return false;
+		}
+		if(root1.data!=root2.data){
+			return false;
+		}
+		boolean leftSide=isSymmetricTree(root1.left, root2.right);
+		boolean rightSide = isSymmetricTree(root1.right, root2.left);
+		return leftSide&&rightSide;
+	}
+    public static void isSymmetrical(Node root) {
+        //Write your code here and print output here
+		if(isSymmetricTree(root,root)){
+			System.out.print("YES");
+		}else{
+			System.out.print("NO");
+		}
+
+    }
